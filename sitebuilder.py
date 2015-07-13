@@ -13,18 +13,18 @@ app.config.from_object(__name__)
 pages = FlatPages(app)
 
 # set server name due to development environment restrictions
-SERVER_NAME = "0.0.0.0"
+SERVER_NAME = '0.0.0.0'
 SERVER_PORT = 8080
 
 # define the routes
 @app.route("/")
 def index():
-    return "Hello World"
+    return render_template('index.html', pages = pages)
 
 @app.route('/<path:path>/')
 def page(path):
     page = pages.get_or_404(path)
     return render_template('page.html', page = page)
 
-if __name__ == "__main__":
+if __name__ == '__main__':
     app.run(SERVER_NAME, SERVER_PORT)
