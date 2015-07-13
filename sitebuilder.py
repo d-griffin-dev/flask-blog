@@ -1,5 +1,5 @@
 # import libraries
-from flask import Flask
+from flask import Flask, render_template
 from flask_flatpages import FlatPages
 
 # settings for FlatPages
@@ -23,7 +23,8 @@ def index():
 
 @app.route('/<path:path>/')
 def page(path):
-    return pages.get_or_404(path).html
+    page = pages.get_or_404(path)
+    return render_template('page.html', page = page)
 
 if __name__ == "__main__":
     app.run(SERVER_NAME, SERVER_PORT)

@@ -1,0 +1,19 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>{% if title  %}{{ title }} | {% endif %}Daniel J Griffin</title>
+  </head>
+  <body>
+    <nav>
+      <ul>
+        <li><a href="{{ url_for("index") }}">Daniel J Griffin</a></li>
+      </ul>
+    </nav>
+
+    <h1>{{ title }}</h1>
+    {% block content %}
+      <p>default content to be displayed.</p>
+    {% endblock content %}
+  </body>
+</html>
