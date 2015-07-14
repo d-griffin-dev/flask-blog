@@ -19,7 +19,7 @@ SERVER_PORT = 8080
 # define the routes
 @app.route("/")
 def index():
-    return render_template('index.html', pages = pages)
+    return render_template('index.html', pages = pages, page = False)
 
 @app.route('/<path:path>/')
 def page(path):
